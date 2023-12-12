@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch --runInBand"
+    "test": "jest --watch --runInBand",
+    "test:unit": "npm test -- --silent -c jest-unit-config.js",
+    "test:integration": "npm test -- --silent -c jest-integration-config.js"
   },
   "keywords": [],
   "author": "",
