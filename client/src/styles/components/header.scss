@@ -1,0 +1,47 @@
+.header-desktop {
+  color: $white;
+  font-family: DM Sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  background-color: $principalColor;
+  height: 40vh;
+  width: 100vw;
+
+  & :hover {
+    cursor: pointer;
+  }
+
+  & .header-navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5vh 0;
+
+    & .header-navbar-content {
+      width: 58vw;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+      line-height: 19.5px;
+      height: 35px;
+    }
+
+    & .budget {
+      background-color: $desfokecWhite;
+      padding: 12px 18px;
+      border-radius: 7px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+
+      & img {
+        background-color: $desfokecWhite;
+        padding-right: 3px;
+      }
+    }
+  }
+}

@@ -14,19 +14,19 @@ export function HeaderDesktop() {
   return (
     <div className="header-desktop">
       <nav className="header-navbar">
-        <div>
+        <div className="header-navbar-content">
           <Image src={ Logo } alt={"Logo e nome da empresa"} />
           <div>Início</div>
           <div onClick={ () => onClick() }>
             Products
-            <p>{ showProducts ? "^" : "ˇ"}</p>
+            <span>{ showProducts ? " ^" : " ˇ"}</span>
           </div>
           <div>Laudos</div>
           <div>Sobre nós</div>
           <div>Certificações</div>
           <div>Contato</div>
         </div>
-        <div>
+        <div className="budget">
           <Image src={ Painel } alt={"Imagem de um painel"} />
           Orçamento
         </div>
