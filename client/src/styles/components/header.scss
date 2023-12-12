@@ -8,16 +8,18 @@
   height: 40vh;
   width: 100vw;
 
-  & :hover {
-    cursor: pointer;
-  }
-
   & .header-navbar {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    width: 80vw;
+    margin-left: 10vw;
     align-items: center;
-    padding: 5vh 0;
+    padding: 5vh 0 2vh;
+
+    & :hover {
+      cursor: pointer;
+    }
 
     & .header-navbar-content {
       width: 58vw;
@@ -39,9 +41,12 @@
       align-items: center;
 
       & img {
-        background-color: $desfokecWhite;
         padding-right: 3px;
       }
     }
   }
+}
+
+.header-desktop:has(.header-products) .header-navbar {
+  border-bottom: 1px solid $white;
 }
