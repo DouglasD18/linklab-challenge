@@ -1,4 +1,4 @@
-.header-desktop {
+.header {
   color: $white;
   font-family: DM Sans;
   font-size: 14px;
@@ -51,7 +51,7 @@
   }
 }
 
-.header-desktop:has(.header-products) .header-navbar {
+.header:has(.header-products) .header-navbar {
   border-bottom: 1px solid $white;
 
   & .header-navbar-content div:nth-child(2) {

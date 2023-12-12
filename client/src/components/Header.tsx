@@ -4,7 +4,7 @@ import Painel from "@/../public/images/painel.svg"
 import { useState } from "react"
 import { HeaderProducts } from "./HeaderProducts";
 
-export function HeaderDesktop() {
+export function Header() {
   const [showProducts, setShowProducts] = useState<boolean>(false);
 
   const onClick = () => {
@@ -12,7 +12,7 @@ export function HeaderDesktop() {
   }
 
   return (
-    <div className="header-desktop">
+    <div className="header">
       <nav className="header-navbar">
         <div className="header-navbar-content">
           <Image src={ Logo } alt={"Logo e nome da empresa"} />
