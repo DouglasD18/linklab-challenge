@@ -5,7 +5,7 @@
   font-weight: 400;
   line-height: 18px;
   background-color: $principalColor;
-  height: 40vh;
+  height: 45vh;
   width: 100vw;
 
   & .header-navbar {
@@ -30,6 +30,10 @@
       font-size: 15px;
       line-height: 19.5px;
       height: 35px;
+
+      & div:nth-child(2) {
+        color: $lightBlue;
+      }
     }
 
     & .budget {
@@ -49,4 +53,12 @@
 
 .header-desktop:has(.header-products) .header-navbar {
   border-bottom: 1px solid $white;
+
+  & .header-navbar-content div:nth-child(2) {
+    color: $white;
+  }
+
+  & .header-navbar-content div:nth-child(3) {
+    color: $orange;
+  }
 }
