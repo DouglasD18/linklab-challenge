@@ -1,5 +1,7 @@
 import { HeaderDesktop } from "@/components/HeaderDesktop";
+import { queryClient } from "@/services/queryClient";
 import Head from "next/head";
+import { QueryClientProvider } from "react-query";
 
 export default function Page() {
   return <>
@@ -9,8 +11,8 @@ export default function Page() {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="icon" imageSrcSet="@/../public/favicon.ico" />
     </Head>
-    <main>
+    <QueryClientProvider client={ queryClient }>
       <HeaderDesktop />
-    </main>
+    </QueryClientProvider>
   </>
 }
