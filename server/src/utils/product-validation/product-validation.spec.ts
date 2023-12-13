@@ -1,8 +1,8 @@
 import { Product } from "../../domain/models/products";
-import { InvalidParamError, MissingParamError } from "../../presentation/errors";
-import { ProductValidation } from "./product-validation";
+import { ProductValidationAdapter } from "./product-validation";
+import { InvalidParamError, MissingParamError } from "./product-validation-protocols";
 
-const sut = new ProductValidation();
+const sut = new ProductValidationAdapter();
 
 const PRODUCT: Product = {
   name: "Product",

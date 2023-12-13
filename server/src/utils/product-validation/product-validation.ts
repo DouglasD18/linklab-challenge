@@ -1,11 +1,6 @@
-import { InvalidParamError, MissingParamError } from "../../presentation/errors";
+import { InvalidParamError, MissingParamError, ProductValidation, Validated } from "./product-validation-protocols";
 
-export interface Validated {
-  isValid: boolean;
-  error?: Error;
-}
-
-export class ProductValidation {
+export class ProductValidationAdapter implements ProductValidation {
 
   handle(body: any): Validated {
     const fields = ["name", "image", "note", "value"];
