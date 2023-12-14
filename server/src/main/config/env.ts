@@ -1,3 +1,4 @@
 export default {
-  mongo_uri: "mongodb://localhost/products"
+  mongo_uri: "mongodb://localhost/products",
+  port: 3333
 }

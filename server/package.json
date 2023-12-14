@@ -2,8 +2,9 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/main/server.ts",
   "scripts": {
+    "dev": "tsnd src/main/server.ts",
     "test": "jest --watch --runInBand",
     "test:unit": "npm test -- --silent -c jest-unit-config.js",
     "test:integration": "npm test -- --silent -c jest-integration-config.js"
