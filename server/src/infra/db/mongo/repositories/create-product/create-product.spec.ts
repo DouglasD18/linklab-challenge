@@ -18,14 +18,14 @@ describe("CreateProductMongoRepository", () => {
   })
 
   afterAll(async () => {
-    const accountCollection = await MongoHelper.getCollection('products');
-    await accountCollection.deleteMany({});
+    const productCollection = await MongoHelper.getCollection('products');
+    await productCollection.deleteMany({});
     await MongoHelper.disconnect();
   })
 
   beforeEach(async () => {
-    const accountCollection = await MongoHelper.getCollection('products')
-    await accountCollection.deleteMany({})
+    const productCollection = await MongoHelper.getCollection('products')
+    await productCollection.deleteMany({})
   })
 
   it("Should return an product on success", async () => {
