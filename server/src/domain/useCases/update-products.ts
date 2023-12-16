@@ -1,5 +1,5 @@
 import { Product } from "../models/products";
 
 export interface UpdateProduct {
-  handle(name: string, product: Product): Promise<Product>;
+  handle(name: string, product: Product): Promise<void>;
 }
