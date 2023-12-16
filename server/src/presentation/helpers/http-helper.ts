@@ -1,10 +1,17 @@
-import { ServerError } from "../errors"
+import { NotFoundError, ServerError } from "../errors"
 import { HttpResponse } from "../protocols/http"
 
 export const badRequest = (error: Error): HttpResponse => {
   return {
     statusCode: 400,
     body: error
+  }
+}
+
+export const notFound = (): HttpResponse => {
+  return {
+    statusCode: 404,
+    body: new NotFoundError()
   }
 }
 
@@ -27,4 +34,11 @@ export const created = (data: any): HttpResponse => {
     statusCode: 201,
     body: data
   }
+}
+
+export const noContent = (): HttpResponse => {
+  return {
+    statusCode: 203,
+    body: "No Content"
+  } 
 }
