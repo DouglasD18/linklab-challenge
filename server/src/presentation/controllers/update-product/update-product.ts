@@ -9,7 +9,7 @@ export class UpdateProductController implements Controller {
   async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
     const name = httpRequest.params?.name;
     
-    if (!name) {
+    if (!name || name.length < 1) {
       return badRequest(new MissingParamError("name"));
     } else if (typeof name !== "string") {
       return badRequest(new InvalidParamError("name", "Name must be a string"));

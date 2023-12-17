@@ -26,8 +26,8 @@ interface SutTypes {
 
 const makeUpdateProductStub = (): UpdateProduct => {
   class UpdateProductStub implements UpdateProduct {
-    handle(name: string, product: Product): Promise<Product> {
-      return new Promise(resolve => resolve(PRODUCT));
+    handle(name: string, product: Product): Promise<void> {
+      return new Promise(resolve => resolve());
     }
   }
 
