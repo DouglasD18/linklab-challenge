@@ -12,54 +12,34 @@ const NAME = PRODUCT.name;
 
 const makeUpdateProductRepository = (): UpdateProductRepository => {
   class UpdateProductRepositoryStub implements UpdateProductRepository {
-    handle(name: string, product: Product): Promise<void> {
-      return new Promise(resolve => resolve());
+    handle(name: string, product: Product): Promise<boolean> {
+      return new Promise(resolve => resolve(true));
     }
   }
 
   return new UpdateProductRepositoryStub();
 }
 
-const makeListProductsStub = (): ListProducts => {
-  class ListProductsStub implements ListProducts {
-    handle(): Promise<Product[]> {
-      return new Promise(resolve => resolve([PRODUCT]));
-    }
-  }
-
-  return new ListProductsStub();
-}
-
 interface SutTypes {
   sut: UpdateProductAdapter
-  updateProductRepositoryStub: UpdateProductRepository,
-  listProducts: ListProducts
+  updateProductRepositoryStub: UpdateProductRepository
 }
 
 const makeSut = (): SutTypes => {
   const updateProductRepositoryStub = makeUpdateProductRepository();
-  const listProducts = makeListProductsStub();
-  const sut = new UpdateProductAdapter(updateProductRepositoryStub, listProducts);
+  const sut = new UpdateProductAdapter(updateProductRepositoryStub);
 
   return {
     sut,
-    updateProductRepositoryStub,
-    listProducts
+    updateProductRepositoryStub
   }
 }
 
 describe("UpdateProduct Adapter", () => {
-  it("Should call ListProducts", async () => {
-    const { sut, listProducts } = makeSut();
-
-    const repositorySpy = jest.spyOn(listProducts, "handle");
-    await sut.handle(NAME, PRODUCT);
-
-    expect(repositorySpy).toHaveBeenCalled();
-  })
-
   it("Should throws if product not exists", async () => {
-    const { sut } = makeSut();
+    const { sut, updateProductRepositoryStub } = makeSut();
+
+    jest.spyOn(updateProductRepositoryStub, "handle").mockReturnValueOnce(new Promise(resolve => resolve(false)));
 
     try {
       await sut.handle("Novo Produto", PRODUCT);
@@ -69,7 +49,7 @@ describe("UpdateProduct Adapter", () => {
 
   })
 
-  it("Should UpdateProductRepository with correct values", async () => {
+  it("Should call UpdateProductRepository with correct values", async () => {
     const { sut, updateProductRepositoryStub } = makeSut();
 
     const repositorySpy = jest.spyOn(updateProductRepositoryStub, "handle");
@@ -78,7 +58,7 @@ describe("UpdateProduct Adapter", () => {
     expect(repositorySpy).toHaveBeenCalledWith(NAME, PRODUCT);
   })
 
-  it("Should call throw if UpdateProductRepository throws", async () => {
+  it("Should throw if UpdateProductRepository throws", async () => {
     const { sut, updateProductRepositoryStub } = makeSut();
 
     jest.spyOn(updateProductRepositoryStub, "handle").mockImplementationOnce(() => {

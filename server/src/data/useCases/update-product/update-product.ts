@@ -1,18 +1,15 @@
-import { UpdateProduct, UpdateProductRepository, ListProducts, Product, NotFoundError } from "./update-product-protocols";
+import { UpdateProduct, UpdateProductRepository, Product, NotFoundError } from "./update-product-protocols";
 
 export class UpdateProductAdapter implements UpdateProduct {
   constructor(
-    private repository: UpdateProductRepository,
-    private listProducts: ListProducts
+    private repository: UpdateProductRepository
   ) {}
 
   async handle(name: string, product: Product): Promise<void> {
-    const products = await this.listProducts.handle();
+    const isUpdated = await this.repository.handle(name, product);
 
-    if (!products.find(product => product.name === name)) {
+    if (!isUpdated) {
       throw new NotFoundError();
     }
-
-    await this.repository.handle(name, product);
   }
 }

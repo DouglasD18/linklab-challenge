@@ -1,8 +1,8 @@
 import app from "./config/app";
 import env from "./config/env";
-// import { firstSeed } from '../utils/first-seed';
+import firstSeed from '../utils/first-seed/first-seed';
 
 app.listen(env.port, async () => {
-//  await firstSeed();
+  await firstSeed();
   console.log("Server is Running!")
 })
