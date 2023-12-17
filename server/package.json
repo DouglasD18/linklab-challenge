@@ -4,6 +4,8 @@
   "description": "",
   "main": "src/main/server.ts",
   "scripts": {
+    "start": "npm run build  && node dist/src/main/server.js",
+    "build": "rm -rf dist && tsc",
     "dev": "tsnd src/main/server.ts",
     "test": "jest --watch --runInBand",
     "test:unit": "npm test -- --silent -c jest-unit-config.js",
