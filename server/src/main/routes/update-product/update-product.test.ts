@@ -105,6 +105,6 @@ describe("UpdateProduct Route", () => {
       .put(ROUTE + "/Product")
       .send(PRODUCT);
       
-    expect(response.statusCode).toBe(203);
+    expect(response.statusCode).toBe(204);
   }) 
 })

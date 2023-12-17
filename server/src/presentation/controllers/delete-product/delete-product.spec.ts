@@ -103,7 +103,7 @@ describe('DeleteProduct Controller', () => {
     
     const httpResponse = await sut.handle(httpRequest);
 
-    expect(httpResponse.statusCode).toBe(203);
+    expect(httpResponse.statusCode).toBe(204);
     expect(httpResponse.body).toBe("No Content");
   });
 });
