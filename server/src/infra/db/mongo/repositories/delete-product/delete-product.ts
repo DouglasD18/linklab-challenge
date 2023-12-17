@@ -6,7 +6,7 @@ export class DeleteProductMongoRepository implements DeleteProductRepository {
     const productCollection = await MongoHelper.getCollection("products");
     const deleted = await productCollection.findOneAndDelete({ name });
 
-    return deleted ? true : false;
+    return deleted !== null ? true : false;
   }
   
 }

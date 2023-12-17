@@ -5,7 +5,7 @@ export class DeleteProductAdapter implements DeleteProduct {
 
   async handle(name: string): Promise<void> {
     const isDeleted = await this.repository.handle(name);
-
+    
     if (!isDeleted) {
       throw new NotFoundError();
     }

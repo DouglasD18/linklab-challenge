@@ -38,7 +38,7 @@ export const created = (data: any): HttpResponse => {
 
 export const noContent = (): HttpResponse => {
   return {
-    statusCode: 203,
+    statusCode: 204,
     body: "No Content"
   } 
 }

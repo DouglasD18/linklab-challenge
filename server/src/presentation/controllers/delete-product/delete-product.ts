@@ -14,7 +14,7 @@ export class DeleteProductController implements Controller {
     
     try {
       await this.deleteProduct.handle(name);
-
+      
       return noContent();
     } catch (error) {
       if (error instanceof Error && error.name === "NotFoundError") {
