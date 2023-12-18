@@ -1,7 +1,10 @@
 import { Product } from "@/types/Product";
+import axios from "axios";
 
-const URL = "http://localhost:3333/api/product/";
+const api = axios.create({
+  baseURL: "http://localhost:3333/api/product"
+});
 
 export const request = async (): Promise<Product[]> => {
-  return fetch(URL).then(res => res.body) as unknown as Product[];
+  return (await api.get("/")).data;
 }
