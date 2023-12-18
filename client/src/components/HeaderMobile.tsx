@@ -15,7 +15,7 @@ export function HeaderMobile() {
 
   function onFalse() {
     return (
-      <div>
+      <div className="onFalse">
         <h3>Qualidade e expertise em produtos <span>químicos e acessórios</span></h3>
         <p>Estamos preparados para te entender e atender da melhor forma para suprir todas as suas demandas em químicos e similares.</p>
       </div>
@@ -24,7 +24,7 @@ export function HeaderMobile() {
 
   function onTrue() {
     return (
-      <div>
+      <div className="onTrue">
         <h2>Navegue por nosso site</h2>
         <div>
           <p>Início</p>
@@ -40,15 +40,15 @@ export function HeaderMobile() {
 
   return (
     <div className="header-mobile">
-      <div className="header-navbar">
-        <Image src={Logo} alt={"Logo e nome da empresa"} />
-        <div>
-          <Image src={ Painel } alt={"Imagem de um painel"} />
-          <Image src={ Hamburguer } alt={"Menu hamburguer"} onClick={() => onClick()} />
+      <div className="content">
+        <div className="header-navbar">
+          <Image src={Logo} alt={"Logo e nome da empresa"} />
+          <div className="menus">
+            <Image className="painel" src={ Painel } alt={"Imagem de um painel"} />
+            <Image src={ Hamburguer } alt={"Menu hamburguer"} onClick={() => onClick()} />
+          </div>
         </div>
-      </div>
-      <div className="header-content">
-        { showSideBar ? onFalse() : onTrue() }
+        { showSideBar ? onTrue() : onFalse() }
       </div>
     </div>
   )
