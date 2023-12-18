@@ -22,7 +22,7 @@ export function Header() {
           <div>Início</div>
           <div onClick={ () => onClick() } >
             Products {" "}
-            <span>{ showProducts ? <Image src={Top} alt={"Seta apontando para cima"} /> : <Image src={Down} alt={"Seta apontando para baixo"} />}</span>
+            <span>{ showProducts ? <Image src={ Top } alt={"Seta apontando para cima"} /> : <Image src={Down} alt={"Seta apontando para baixo"} />}</span>
           </div>
           <div>Laudos</div>
           <div>Sobre nós</div>

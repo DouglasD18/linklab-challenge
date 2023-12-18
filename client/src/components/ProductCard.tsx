@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
 import { Product } from "@/types/Product"
-import Image from "next/image"
 
 export interface ProductCardProps {
   product: Product
@@ -10,7 +10,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
   return (
     <div>
-      <Image src={ image } alt={ `${name} image` } />
+      <img src={ `data:image/svg+xml;utf8,${encodeURIComponent(image)}` } alt={ `${name} image` } />
       <div>
         <div>
           <p>{ name }</p>
