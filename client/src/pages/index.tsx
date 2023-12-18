@@ -1,4 +1,7 @@
 import { Header } from "@/components/Header";
+import { HeaderMobile } from "@/components/HeaderMobile";
+import { OptionsCard } from "@/components/OptionsCard";
+import { ProductsCards } from "@/components/ProductsCards";
 import { queryClient } from "@/services/queryClient";
 import Head from "next/head";
 import { QueryClientProvider } from "react-query";
@@ -13,6 +16,9 @@ export default function Page() {
     </Head>
     <QueryClientProvider client={ queryClient }>
       <Header />
+      <HeaderMobile />
+      <OptionsCard />
+      <ProductsCards />
     </QueryClientProvider>
   </>
 }
