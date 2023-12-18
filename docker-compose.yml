@@ -3,6 +3,7 @@ services:
   mongo:
     container_name: mongo-server
     image: mongo:5.0.7
+    network_mode: host
     restart: always
     ports:
       - "27017:27017"
@@ -11,6 +12,7 @@ services:
     container_name: api-container
     build: ./server
     image: api-server
+    network_mode: host
     ports:
       - "3333:3333"
     command: npm start
@@ -18,8 +20,6 @@ services:
       - mongo
     depends_on:
       - mongo
+    environment:
+      - MONGO_URI=mongodb://127.0.0.1:27017/products
 
-
-networks:
-  default:
-    name: linklab_net

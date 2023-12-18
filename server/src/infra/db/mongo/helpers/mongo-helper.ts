@@ -16,6 +16,7 @@ export const MongoHelper = {
     if (this.client === null) {
       await this.connect();
     }
+
     return this.client.db().collection(name);
   }
 }
