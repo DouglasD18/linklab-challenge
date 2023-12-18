@@ -1,0 +1,12 @@
+.options-card {
+  display: flex;
+
+  & .options {
+    color: $principalColor;
+    background-color: $beige;
+
+    & img {
+      width: 35px;
+    }
+  }
+}

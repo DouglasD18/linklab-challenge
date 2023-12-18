@@ -22,9 +22,11 @@ export function ProductsCards() {
   return (
     <div className="products-cards">
       <h2>PRODUTOS</h2>
-      { products ? products.map(product => (
-        <ProductCard product={ product } key={ product.name } />
-      )) : 'Carregando...' }
+      <div className="cards-field">
+        { products ? products.map(product => (
+          <ProductCard product={ product } key={ product.name } />
+        )) : 'Carregando...' }
+      </div>
     </div>
   )
 }

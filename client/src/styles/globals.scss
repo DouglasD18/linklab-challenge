@@ -1,6 +1,9 @@
 @import "./variables.scss";
 @import "./components/header.scss";
 @import "./components/header-product.scss";
+@import "./components//header-mobile.scss";
+@import "./components/options-card.scss";
+@import "./components/products-cards.scss";
 
 * {
   box-sizing: border-box;
@@ -11,4 +14,19 @@
 html, body {
   width: 100%;
   height: 100%;
+
+  & .header-mobile {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    & .header {
+      display: none;
+    }
+
+    & .header-mobile {
+      display: flex;
+    }
+  }
+
 }
